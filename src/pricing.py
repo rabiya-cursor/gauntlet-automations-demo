@@ -19,9 +19,9 @@ def bulk_discount_percent(quantity):
 
     Tiers: 10+ units -> 5%, 50+ units -> 10%, 100+ units -> 15%.
     """
-    if quantity > 100:
+    if quantity >= 100:
         return 15
-    if quantity > 50:
+    if quantity >= 50:
         return 10
     if quantity >= 10:
         return 5

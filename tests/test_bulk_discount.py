@@ -18,3 +18,11 @@ from src.pricing import bulk_discount_percent
 )
 def test_bulk_discount_tiers(quantity, expected):
     assert bulk_discount_percent(quantity) == expected
+
+
+def test_bulk_discount_never_decreases_from_0_to_200():
+    previous = bulk_discount_percent(0)
+    for quantity in range(1, 201):
+        current = bulk_discount_percent(quantity)
+        assert current >= previous
+        previous = current
